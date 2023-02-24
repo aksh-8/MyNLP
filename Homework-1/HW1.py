@@ -159,6 +159,12 @@ def sentence_probability(evaluation_sentences,smoothing):
     probability = 1
     log_probability = 0
     with open("output.txt","a") as f:
+        if smoothing:
+            print("WITH ADD-ONE SMOOTHING")
+            print("WITH ADD-ONE SMOOTHING", file=f)
+        else:
+            print("WITHOUT ADD-ONE SMOOTHING")
+            print("WITHOUT ADD-ONE SMOOTHING", file=f)
         for i in range(len(evaluation_sentences)):
             eval_tokens = tokenize(evaluation_sentences[i])
             eval_vocab = construct_vocab(eval_tokens)
@@ -169,6 +175,7 @@ def sentence_probability(evaluation_sentences,smoothing):
                     log_probability += 0
                 else:
                     log_probability += abs(math.log(probability))
+            
             print("THE SENTENCE PROBABILITY FOR \"" + evaluation_sentences[i][0] + "\" is: " + str(probability))
             print("THE LOG PROBABILITY OF THE ABOVE IS: " + str(log_probability))
             print("THE SENTENCE PROBABILITY FOR \"" + evaluation_sentences[i][0] + "\" is: " + str(probability),file=f)
@@ -182,6 +189,8 @@ if __name__ == "__main__":
         sys.exit("Enter all the arguments: Training file and Smoothing boolean")
     smoothing = int(sys.argv[2])
     file = sys.argv[1]
+    if smoothing not in [0,1]:
+        sys.exit("Enter a Valid Smoothing boolean value, i.e {0,1}")
     evaluation_sentences = ["mark antony shall say i am not well , and for thy humor , i will stay at home .","talke not of standing . publius good cheere , there is no harme intended to your person , nor to no roman else : so tell them publius"]
     #smoothing = 1
     for i in range(len(evaluation_sentences)):

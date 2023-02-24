@@ -7,6 +7,7 @@ Assumptions:
 4. Only python libraries used are "string" and "math"
 5. This file is written in Python3, therefore it must be tested in the same
 6. On investigation using regex, no words with hyphen or apostrophes were found in the training corpus, therefore no special checks for such words are included in the preprocessing
+7. Probability values for the sentence by muliplication as well Log-sum have been reported. For Log-sum the absolute value is used
 
 - The training corpus is stored in "train.txt"
 - The outputs are printed to the console and written to the "output.txt" file

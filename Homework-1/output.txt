@@ -94,6 +94,7 @@ Printing the bigram counts for each word of sentence(without punctuations): "tal
        <end>    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193    0.000193
 
 ###################################################################################################
+WITH ADD-ONE SMOOTHING
 THE SENTENCE PROBABILITY FOR "mark antony shall say i am not well  and for thy humor  i will stay at home " is: 3.1373822827801745e-50
 THE LOG PROBABILITY OF THE ABOVE IS: 1068.6327840218444
 THE SENTENCE PROBABILITY FOR "talke not of standing  publius good cheere  there is no harme intended to your person  nor to no roman else  so tell them publius" is: 1.4058573004107578e-126
