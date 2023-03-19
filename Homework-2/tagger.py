@@ -2,6 +2,8 @@ import os
 import sys
 import numpy as np
 
+# PATH = E:\MS-CE-UTD\Sem-4\MyNLP\Homework-2\modified_brown
+
 def load_corpus(path):
     """ Load corpus from a folder / directory
 
@@ -11,7 +13,21 @@ def load_corpus(path):
     Return:
         sentences: a list of sentences that are preprocessed in the corpus
     """
-    pass
+    sentences = []
+    for filename in os.listdir(path):
+        with open(os.path.join(path,filename), "r") as f:
+            lines = f.readlines()
+            for line in lines:
+                temp = line.split()
+                sentence = []
+                for inp in temp:
+                    pair = inp.split('/')
+                    token, POS = pair[0], pair[1]
+                    sentence.append((token,POS))
+                if sentence:
+                    sentences.append(sentence)
+    return sentences
+
 
 class HMMTagger:
 
