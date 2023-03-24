@@ -1,0 +1,24 @@
+The generated output for - Part - 1: POST using HMMs: 
+
+
+the planet jupiter and its moons are in effect a mini solar system .
+[('the', 'DETERMINER'), ('planet', 'NOUN'), ('jupiter', 'PUNCT'), ('and', 'CONJUNCTION'), ('its', 'PRONOUN'), ('moons', 'NOUN'), ('are', 'VERB'), ('in', 'PREPOSITION'), ('effect', 'NOUN'), ('a', 'DETERMINER'), ('mini', 'NOUN'), ('solar', 'PUNCT'), ('system', 'NOUN'), ('.', 'PUNCT')]
+computers process programs accurately .
+[('computers', 'NOUN'), ('process', 'NOUN'), ('programs', 'NOUN'), ('accurately', 'ADVERB'), ('.', 'PUNCT')]
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+The generated output for - Part- 2: POST using RNNs
+
+
+The predicted tags for: the secretariat is expected to race tomorrow .
+[('the', 'DETERMINER'), ('secretariat', 'NOUN'), ('is', 'VERB'), ('expected', 'VERB'), ('to', 'PREPOSITION'), ('race', 'VERB'), ('tomorrow', 'NOUN'), ('.', 'PUNCT')]
+The predicted tags for: people continue to enquire the reason for the race for outer space .
+[('people', 'NOUN'), ('continue', 'VERB'), ('to', 'PREPOSITION'), ('enquire', 'VERB'), ('the', 'DETERMINER'), ('reason', 'NOUN'), ('for', 'PREPOSITION'), ('the', 'DETERMINER'), ('race', 'NOUN'), ('for', 'PREPOSITION'), ('outer', 'ADJECTIVE'), ('space', 'NOUN'), ('.', 'PUNCT')]
+The predicted tags for: the planet jupiter and its moons are in effect a mini solar system .
+[('the', 'DETERMINER'), ('planet', 'NOUN'), ('jupiter', 'NOUN'), ('and', 'CONJUNCTION'), ('its', 'PRONOUN'), ('moons', 'NOUN'), ('are', 'VERB'), ('in', 'PREPOSITION'), ('effect', 'NOUN'), ('a', 'DETERMINER'), ('mini', 'NOUN'), ('solar', 'ADJECTIVE'), ('system', 'NOUN'), ('.', 'PUNCT')]
+The predicted tags for: computers process programs accurately .
+[('computers', 'NOUN'), ('process', 'NOUN'), ('programs', 'NOUN'), ('accurately', 'ADVERB'), ('.', 'PUNCT')]
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
