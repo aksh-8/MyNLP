@@ -10,8 +10,6 @@ import sys
 import numpy as np
 import pandas as pd
 
-# PATH = E:\MS-CE-UTD\Sem-4\MyNLP\Homework-2\modified_brown
-
 def load_corpus(path):
     '''
     Function : Loads corpus from directory
