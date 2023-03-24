@@ -104,11 +104,16 @@ class HMMTagger:
 
 
 if __name__ == "__main__":
+    # Get command line input
+    if len(sys.argv)>1:
+        folder_name = sys.argv[1]
+    else:
+        folder_name = input("Input path: ")
+        
     # Initialize the tagger class
     tagger = HMMTagger()
 
     # Read a corpus and learn from it
-    folder_name = input("Input path: ")
     sentences = load_corpus(folder_name)
     res = tagger.initialize_probabilities(sentences)
 
