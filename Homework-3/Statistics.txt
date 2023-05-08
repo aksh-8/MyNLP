@@ -1,0 +1,225 @@
+######################################## SEMANTIC RELATION CLASSIFICATION ########################################
+------------------------------------------------------------------------------------------------------------------
+
+Statistics for the entire training data-set:
+
+Label distribution for the entire training dataset
+
+Relation type             Percentage      Count
+Component-Whole(e2,e1)    5.91%            471
+Other-Relation            60.45%           4821
+Instrument-Agency(e2,e1)  5.04%            402
+Cause-Effect(e2,e1)       8.25%            658
+Product-Producer(e2,e1)   4.93%            393
+Cause-Effect(e1,e2)       4.28%            341
+Component-Whole(e1,e2)    5.89%            470
+Product-Producer(e1,e2)   4.04%            322
+Instrument-Agency(e1,e2)  1.22%             97
+
+Total number of relations: 7975
+
+------------------------------------------------------------------------------------------------------------------
+
+Statistics for the train-split set:
+
+Label distribution for the train-set split
+
+Relation type             Percentage      Count
+Other-Relation            60.75%           3876
+Instrument-Agency(e2,e1)  5.11%            326
+Component-Whole(e1,e2)    5.94%            379
+Component-Whole(e2,e1)    5.82%            371
+Product-Producer(e1,e2)   4.03%            257
+Product-Producer(e2,e1)   4.75%            303
+Instrument-Agency(e1,e2)  1.24%             79
+Cause-Effect(e2,e1)       8.21%            524
+Cause-Effect(e1,e2)       4.15%            265
+
+Total number of relations: 6380
+
+------------------------------------------------------------------------------------------------------------------
+
+Statistics for the train-split set:
+
+Label distribution for the validation-set split
+
+Relation type             Percentage      Count
+Other-Relation            59.25%            945
+Cause-Effect(e2,e1)       8.40%            134
+Product-Producer(e2,e1)   5.64%             90
+Instrument-Agency(e2,e1)  4.76%             76
+Product-Producer(e1,e2)   4.08%             65
+Component-Whole(e2,e1)    6.27%            100
+Component-Whole(e1,e2)    5.71%             91
+Cause-Effect(e1,e2)       4.76%             76
+Instrument-Agency(e1,e2)  1.13%             18
+
+Total number of relations: 1595
+
+------------------------------------------------------------------------------------------------------------------
+
+Statistics for the Testing data:
+
+Label Distribution for the testing data
+
+Relation type             Percentage      Count
+Other-Relation            62.23%           1689
+Product-Producer(e2,e1)   4.53%            123
+Instrument-Agency(e2,e1)  4.94%            134
+Cause-Effect(e2,e1)       7.15%            194
+Component-Whole(e1,e2)    5.97%            162
+Product-Producer(e1,e2)   3.98%            108
+Cause-Effect(e1,e2)       4.90%            133
+Component-Whole(e2,e1)    5.49%            149
+Instrument-Agency(e1,e2)  0.81%             22
+
+Total number of relations: 2714
+
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+
+MODEL STATISTICS
+
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ embedding (Embedding)       (None, 100, 300)          6000000   
+                                                                 
+ bidirectional (Bidirectiona  (None, 1024)             3330048   
+ l)                                                              
+                                                                 
+ dense (Dense)               (None, 9)                 9225      
+                                                                 
+=================================================================
+Total params: 9,339,273
+Trainable params: 9,339,273
+Non-trainable params: 0
+_________________________________________________________________
+None
+
+*Note: The same model design is used for improving performance
+
+------------------------------------------------------------------------------------------------------------------
+
+VALIDATION DATA STATISTICS - Balanced dataset with appropriate class weights
+
+              precision    recall  f1-score   support
+
+           0       0.79      0.85      0.82       945
+           1       0.84      0.70      0.76       134
+           2       0.40      0.41      0.40        91
+           3       0.53      0.29      0.37       100
+           4       0.45      0.39      0.42        76
+           5       0.53      0.21      0.30        90
+           6       0.68      0.68      0.68        76
+           7       0.38      0.52      0.44        65
+           8       0.17      0.39      0.23        18
+
+    accuracy                           0.70      1595
+   macro avg       0.53      0.49      0.49      1595
+weighted avg       0.69      0.70      0.69      1595
+
+[[807   8  31  12  19  11  11  29  17]
+ [ 20  94   4   0   0   0   6   7   3]
+ [ 33   0  37   9   5   0   3   1   3]
+ [ 46   0  12  29   7   1   1   1   3]
+ [ 29   1   3   3  30   2   0   3   5]
+ [ 48   0   2   2   4  19   2  10   3]
+ [ 14   6   1   0   0   0  52   2   1]
+ [ 24   3   1   0   0   3   0  34   0]
+ [  5   0   1   0   2   0   1   2   7]]
+
+------------------------------------------------------------------------------------------------------------------
+
+TEST DATA STATISTICS - Balanced dataset with appropriate class weights
+
+                          precision    recall  f1-score   support
+
+     Cause-Effect(e1,e2)       0.00      0.00      0.00       133
+     Cause-Effect(e2,e1)       0.69      0.53      0.60       194
+  Component-Whole(e1,e2)       0.16      0.12      0.13       162
+  Component-Whole(e2,e1)       0.07      0.03      0.04       149
+Instrument-Agency(e1,e2)       0.00      0.00      0.00        22
+Instrument-Agency(e2,e1)       0.16      0.07      0.09       134
+          Other-Relation       0.67      0.81      0.73      1689
+ Product-Producer(e1,e2)       0.11      0.08      0.09       108
+ Product-Producer(e2,e1)       0.02      0.02      0.02       123
+
+                accuracy                           0.56      2714
+               macro avg       0.21      0.18      0.19      2714
+            weighted avg       0.49      0.56      0.52      2714
+
+[[   0    7    6    4    3    1   83    0   29]
+ [   1  102    7    0    2    0   67    8    7]
+ [   2    1   19    5    3    4  124    1    3]
+ [   4    2    8    4    5    5  116    3    2]
+ [   1    0    0    0    0    1   17    2    1]
+ [   0    5    3    1    6    9  101    5    4]
+ [  32   22   69   38   31   35 1373   50   39]
+ [   3    7    3    1    3    1   78    9    3]
+ [   2    2    5    6    0    1  101    4    2]]
+
+------------------------------------------------------------------------------------------------------------------
+
+VALIDATION DATA STATISTICS - Normal unbalanced dataset with no class weights
+
+              precision    recall  f1-score   support
+
+           0       0.75      0.87      0.81       945
+           1       0.82      0.70      0.76       134
+           2       0.50      0.21      0.29        91
+           3       0.39      0.31      0.34       100
+           4       0.47      0.30      0.37        76
+           5       0.20      0.21      0.21        90
+           6       0.75      0.67      0.71        76
+           7       0.35      0.32      0.34        65
+           8       0.17      0.06      0.08        18
+
+    accuracy                           0.68      1595
+   macro avg       0.49      0.41      0.43      1595
+weighted avg       0.65      0.68      0.66      1595
+
+[[820   8  13  22  11  33  10  24   4]
+ [ 29  94   1   1   0   2   2   4   1]
+ [ 50   0  19  13   1   8   0   0   0]
+ [ 45   1   2  31   8  10   3   0   0]
+ [ 31   0   1   9  23   9   0   3   0]
+ [ 54   1   2   0   5  19   2   7   0]
+ [ 13   7   0   3   0   2  51   0   0]
+ [ 35   3   0   0   0   6   0  21   0]
+ [ 10   0   0   1   1   4   0   1   1]]
+
+------------------------------------------------------------------------------------------------------------------
+
+TEST DATA STATISTICS - Normal unbalanced dataset with no class weights
+
+                          precision    recall  f1-score   support
+
+     Cause-Effect(e1,e2)       0.05      0.07      0.06       133
+     Cause-Effect(e2,e1)       0.71      0.55      0.62       194
+  Component-Whole(e1,e2)       0.22      0.08      0.12       162
+  Component-Whole(e2,e1)       0.04      0.03      0.03       149
+Instrument-Agency(e1,e2)       0.00      0.00      0.00        22
+Instrument-Agency(e2,e1)       0.13      0.06      0.08       134
+          Other-Relation       0.67      0.80      0.72      1689
+ Product-Producer(e1,e2)       0.10      0.06      0.08       108
+ Product-Producer(e2,e1)       0.02      0.02      0.02       123
+
+                accuracy                           0.55      2714
+               macro avg       0.22      0.18      0.19      2714
+            weighted avg       0.49      0.55      0.52      2714
+
+[[   9    7    1    8    1    2   72    3   30]
+ [   4  106    2    3    2    1   71    3    2]
+ [  12    1   13    4    1    4  125    0    2]
+ [  12    0    2    4    0    2  125    1    3]
+ [   3    0    0    0    0    0   14    4    1]
+ [  16    5    0    7    0    8   90    4    4]
+ [ 103   22   40   57    5   39 1343   41   39]
+ [   8    9    1    1    2    2   77    7    1]
+ [   7    0    0    6    0    4   99    5    2]]
+
+------------------------------------------------------------------------------------------------------------------
+
+##################################################################################################################
